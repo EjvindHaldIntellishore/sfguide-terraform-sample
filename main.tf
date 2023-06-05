@@ -8,6 +8,10 @@ terraform {
 }
 
 provider "snowflake" {
+  account  = "SOLITA-INTELLISHORE"
+  username = "tf-snow"
+  #region   = "EU_CENTRAL_1"
+  private_key_path = "/Users/ejvindhald/.ssh/snowflake_tf_snow_key.p8"
   role  = "SYSADMIN"
 }
 
@@ -17,7 +21,7 @@ resource "snowflake_database" "db" {
 
 resource "snowflake_warehouse" "warehouse" {
   name           = "TF_DEMO"
-  warehouse_size = "large"
+  warehouse_size = "LARGE"
 
   auto_suspend = 60
 }
